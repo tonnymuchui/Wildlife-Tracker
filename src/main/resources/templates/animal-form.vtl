@@ -1,0 +1,26 @@
+<h4><a href="/" class="btn btn-info btn-xl">Home</a></h4>
+
+<h1>Add Animal</h1>
+
+<form action="/animal/new" method="post">
+<label>Animal Name</label>
+<input type="text" name="name">
+<label>Endangered?</label>
+<input type="checkbox" name="endangered">
+
+<h3>Additional Info for Endangered Animals:</h3>
+<label>Age</label>
+<select name="age" class="btn btn-info btn-xl">
+    <option>Young</option>
+    <option>Adult</option>
+</select>
+
+<label>Health</label>
+<select name="health" class="btn btn-info btn-xl">
+    <option>Ill</option>
+    <option>Healthy</option>
+</select>
+
+<button type="submit" class="btn btn-primary btn-xl">Add Animal</button>
+
+</form>

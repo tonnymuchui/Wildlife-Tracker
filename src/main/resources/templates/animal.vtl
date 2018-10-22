@@ -1,0 +1,15 @@
+
+<h1>$animal.getName()</h1>
+<h3>ID: $animal.getId()</h3>
+
+        #if($animal.getSightings().size() == 0)
+<p>To report a sighting, please visit the <a href="/">home page</a>.</p>
+        #else
+        #foreach($sighting in $animal.getSightings())
+        Location: $sighting.getLocation()
+        Reported by: $sighting.getRangerName()
+        ID: >$sighting.getId()
+        #end
+        #end
+
+<h4><a href="/">Go Home</a></h4>

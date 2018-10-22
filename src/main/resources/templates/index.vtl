@@ -1,0 +1,72 @@
+<h1><strong>Welcome to Kenya Wildlife</strong></h1>
+<hr/>
+<h4><small>Report a Wildlife Sighting</small></h4>
+
+<h3><a href="/animal/new" class="btn btn-primary btn-xl">Add new Animal</a></h3>
+<hr>
+
+<h3> <strong>Report Non-Endangered Animal Sighting</strong></h3>
+<form action="/sighting" method="post">
+    #if($animals.size() >= 0)
+    <label>Select Animal</label>
+    <select name="animalSelected" class="btn btn-info btn-xl">
+        #foreach($animal in $animals)
+        <option value="$animal.getId()">$animal.getName()</option>
+        #end
+    </select>
+
+    <label>Location</label>
+    <input type="text" name="location">
+    <label>Your Name</label>
+    <input type="text" name="rangerName">
+    <button type="submit" class="btn btn-primary btn-xl">Submit</button>
+    #end
+</form>
+
+<hr>
+
+    <h3><strong> Report Endangered Animal Sighting </strong></h3>
+    <form action="/endangered_sighting" method="post">
+        #if($endangeredAnimals.size() >= 0)
+        <label><strong>Select Endangered Animal</strong></label>
+        <select name="endangeredAnimalSelected" class="btn btn-info btn-xl">
+            #foreach($endangered_animal in $endangeredAnimals)
+            <option value="$endangered_animal.getId()">$endangered_animal.getName()</option>
+            #end
+        </select>
+
+        <label>Location</label>
+        <input type="text" name="location">
+        <label>Your Name</label>
+        <input type="text" name="rangerName">
+        <button type="submit" class="btn btn-primary btn-xl">Submit </button>
+        #end
+    </form>
+
+
+    <h3><strong>Endangered Animal Sightings</strong></h3>
+
+    #if ($endangeredAnimals.size() == 0)
+    <a href="/animal/new" class="btn btn-info btn-xl">Add Animal to Report a Sighting</a>
+    #else
+    #foreach ($endangeredAnimal in $endangeredAnimals)
+    <a href="/endangered_animal/$endangeredAnimal.getId()" class="thumbnail">
+        <h4>$endangeredAnimal.getName()</h4>
+        <h4>$endangeredAnimal.getSightings().size() Reported Sighting(s)</h4>
+        <p class="btn btn-info btn-xl">check details</p>
+    </a>
+    #end
+    #end
+
+    <h3><strong>All Animals and Sightings</strong></h3>
+    #if ($animals.size() == 0)
+    <a href="/animal/new" class="btn btn-primary btn-xl">Add Animal to Report a Sighting</a>
+    #else
+    #foreach ($animal in $animals)
+    <a href="/animal/$animal.getId()" class="thumbnail">
+        <h4>$animal.getName()</h4>
+        <h4>$animal.getSightings().size() Reported Sighting(s)</h4>
+        <p class="btn btn-primary btn-xl">Click for details</p>
+    </a>
+    #end
+    #end

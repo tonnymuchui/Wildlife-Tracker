@@ -50,7 +50,7 @@
     <a href="/animal/new" class="btn btn-info btn-xl">Add Animal to Report a Sighting</a>
     #else
     #foreach ($endangeredAnimal in $endangeredAnimals)
-    <a href="/endangered_animal/$endangeredAnimal.getId()" class="thumbnail">
+    <a href="/endangered_animal/$endangeredAnimal.getId()">
         <h4>$endangeredAnimal.getName()</h4>
         <h4>$endangeredAnimal.getSightings().size() Reported Sighting(s)</h4>
         <p class="btn btn-info btn-xl">check details</p>
@@ -63,7 +63,7 @@
     <a href="/animal/new" class="btn btn-primary btn-xl">Add Animal to Report a Sighting</a>
     #else
     #foreach ($animal in $animals)
-    <a href="/animal/$animal.getId()" class="thumbnail">
+    <a href="/animal/$animal.getId()">
         <h4>$animal.getName()</h4>
         <h4>$animal.getSightings().size() Reported Sighting(s)</h4>
         <p class="btn btn-primary btn-xl">Click for details</p>

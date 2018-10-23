@@ -2,3 +2,8 @@ body {
     background-image: url('/images/wild.jpg') ! important;
     background-attachment: fixed;
 }
+
+# pic {
+ background-image: url('/images/wild.jpg') ! important;
+    background-attachment: fixed;
+}
